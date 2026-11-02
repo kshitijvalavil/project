@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: crewboard
+    runtime: python
+    plan: starter
+    buildCommand: python -m compileall -q app.py
+    startCommand: python app.py
+    healthCheckPath: /health
+    autoDeploy: false
+    disk:
+      name: crewboard-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: HOST
+        value: 0.0.0.0
+      - key: BOARD_DB
+        value: /var/data/board.sqlite3
+      - key: BOARD_ADMIN_TOKEN
+        generateValue: true
+      - key: BOARD_WORKER_TOKEN
+        generateValue: true

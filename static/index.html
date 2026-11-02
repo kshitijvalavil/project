@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Crewboard — Your agent studio</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<aside><a class="brand" href="/">c<span>✳</span> crewboard</a><div class="workspace">PERSONAL WORKSPACE<br><strong>Your development studio <span>⌄</span></strong></div>
+<nav><button class="nav active" data-view="overview">◫ <span>Command center</span></button><button class="nav" data-view="projects">▤ <span>Projects & sprints</span></button><button class="nav" data-view="approvals">◇ <span>Approvals</span><b id="approval-count">0</b></button><button class="nav" data-view="library">⌘ <span>Skills & connections</span></button></nav>
+<div class="side-note"><span class="dot"></span> YOU KEEP THE KEYS<p>Agents do the work.<br>You make the calls.</p></div><div class="profile"><div class="avatar boss">B</div><div><strong>The Boss</strong><small>Workspace owner</small></div></div></aside>
+<main><header><span>Workspace <span class="muted">/</span> <strong id="breadcrumb">Command center</strong></span><div><span class="env">● CONTROL PLANE</span><button id="lock" class="quiet">Lock workspace</button></div></header>
+<section class="intro"><div><div class="eyebrow">YOUR IDEAS. YOUR TEAM. YOUR CALL.</div><h1>Small team. Big possibilities.</h1><p>A home for your projects, your agents, and everything it takes to ship.</p></div><button class="primary" id="new-project">＋ New project</button></section>
+<div id="notice" role="status"></div>
+<section id="unlock" class="unlock"><div><strong>Connect to your workspace</strong><p>Use your Boss access token to view projects and make approvals. It stays in this tab’s memory.</p></div><form id="login"><label class="sr" for="token">Boss access token</label><input id="token" type="password" placeholder="Boss access token" required autocomplete="off"><button class="primary">Unlock →</button></form></section>
+<section id="content"></section>
+<footer><span>Built for thoughtful shipping.</span><span>Plan → approve → build → test → approve → deploy → review</span></footer>
+</main>
+<dialog id="project-dialog"><form id="project-form"><div class="eyebrow">START SOMETHING WORTH SHIPPING</div><h2>Give your team a brief.</h2><p>The PM prepares research and a sprint plan first. Implementation waits for your approval.</p><label>Project name<input name="title" maxlength="150" placeholder="e.g. Support triage studio" required></label><label>What should we build?<textarea name="brief" rows="5" required placeholder="Who is it for? What problem does it solve? Include constraints, success criteria, and any research sources."></textarea></label><div class="form-grid"><label>Dedicated GitHub repository<input name="repository" required placeholder="your-name/project-repo"></label><label>Target Render service ID<input name="render_service" required placeholder="srv-…"></label></div><p class="hint">Use a dedicated target repository and Render service with automatic deploys disabled. This is separate from the Crewboard host.</p><div class="dialog-actions"><button type="button" id="cancel" class="quiet">Cancel</button><button class="primary">Send to Product Manager →</button></div></form></dialog>
+<dialog id="review-dialog"><div id="review-content"></div><button id="close-review" class="quiet">Close report</button></dialog>
+<script src="/app.js"></script></body></html>
