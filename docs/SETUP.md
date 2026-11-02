@@ -19,8 +19,8 @@ python dev.py
 
 ## Host the board on Render
 
-1. Push this repository to your GitHub account using your normal authenticated Git workflow. No push or paid deployment has been performed in this session.
-2. Open [Render Blueprints](https://dashboard.render.com/select-repo?type=blueprint), connect the repository and review `render.yaml`. It specifies a paid Starter service and a persistent 1 GB disk; confirm current pricing at [Render pricing](https://render.com/pricing) before applying. The disk is required for SQLite durability. Do not remove it to use an ephemeral free service for real projects.
+1. The implementation is pushed to [crewboard/agent-studio](https://github.com/kshitijvalavil/project/tree/crewboard/agent-studio) for review. It has not been merged or deployed. Review the branch before approving a release.
+2. After approving deployment, open [Render Blueprints](https://dashboard.render.com/select-repo?type=blueprint), connect `kshitijvalavil/project`, select branch `crewboard/agent-studio` (or the reviewed merge commit), and review `render.yaml`. It specifies a paid Starter service and a persistent 1 GB disk; confirm current pricing at [Render pricing](https://render.com/pricing) before applying. The disk is required for SQLite durability. Do not remove it to use an ephemeral free service for real projects.
 3. Deploy the board, then use its Render service **Environment** page to retrieve `BOARD_ADMIN_TOKEN` privately and unlock it. Keep `BOARD_WORKER_TOKEN` separate. Do not paste secrets into chat. Render creates the values automatically.
 
 The board uses a single process/service with SQLite. Do not scale to multiple independent disks. The board's `/health` confirms process health, not model or worker readiness.

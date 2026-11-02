@@ -7,7 +7,9 @@ Verified in this instance:
 - Chromium browser automation passed: unlock, six role cards, project brief submission, a clearly labeled PM fixture, Boss plan approval, skills navigation, lock and a mobile-width overflow check. No page JavaScript errors occurred. Screenshot: `/tmp/crewboard-overview.png`. Test data used a temporary database and was deleted.
 - Python compilation and JavaScript syntax checks passed. Read-only Git remote access and Docker daemon health passed with approved socket access.
 
-Not verified: live model responses, real agent-generated project correctness, Git write authorization, Render API schema/credentials, live deployment, rollback execution, browser/accessibility coverage of generated projects, fresh-task snapshot restoration, or reference portfolio research. API contract compatibility must be confirmed on the first connected staging run. The Render blueprint has not been applied.
+Git write authorization was verified by pushing the implementation to `crewboard/agent-studio` in the selected repository; this does not establish access to other generated-project targets.
+
+Not verified: live model responses, real agent-generated project correctness, target-repository Git write authorization, Render API schema/credentials, live deployment, rollback execution, browser/accessibility coverage of generated projects, fresh-task snapshot restoration, or reference portfolio research. API contract compatibility must be confirmed on the first connected staging run. The Render blueprint has not been applied.
 
 Initial HTTP tests failed because the command sandbox forbade sockets. They passed after using approved loopback access. The first Docker check exposed a restrictive umask; the worker now makes source readable by the non-root container user and the sandbox test run passed. Chromium was available as the system binary rather than Playwright's default cached executable; the optional browser check handles that.
 
